@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style>
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	background-color: rgb(231,229,229);
+}
+
+html, body { height: 100%; }
+
+header {
+	border-top: 1rem solid rgb(255,253,56);
+	background-color: rgb(255,255,255);
+	height: 9.8rem;
+	margin-bottom: -9.8rem;
+	z-index: 10;
+	position: relative;
+	position: fixed;
+	width: 100%;
+}
+
+#nav {
+	width: 100%;
+	overflow: hidden;
+	border-top: 0.3rem solid #000;
+	border-bottom: 0.3rem solid #000;
+}
+
+#nav ul#filters {
+	list-style-type: none;
+	height: 2rem;
+	margin: 0 auto;
+}
+
+#nav ul#filters li {
+	float: left;
+	text-align: center;
+	height: 3rem;
+}
+
+#nav ul#filters li a {
+	display: block;
+	color: #000;
+	text-decoration: none;
+	line-height: 3rem;
+	font-size: 0.75rem;
+	font-family: "nimbus-sans-condensed", "Arial Narrow", sans-serif;
+	padding: 1rem 0;
+}
+
+.yellow a:hover { background-color: rgb(255,253,56); }
+
+.green a:hover { background-color: rgb(85,253,137); }
+
+.l-blue a:hover { background-color: rgb(44,255,254); }
+
+.d-blue a:hover { background-color: rgb(79,170,251); }
+
+.pink a:hover { background-color: rgb(252,26,159); }
+
+main {
+	min-height: 100%;
+	z-index: 0;
+}
+
+#content {
+	padding-top: 10.8rem;
+	padding-bottom: 11rem;
+	overflow: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+footer {
+	height: 10rem;
+	margin-top: -10rem;
+	clear: both;
+	z-index: 10;
+	position: relative;
+}
+
+#logo {
+	width: 20rem;
+	float: left;
+}
+
+#logo img { max-width: 100%; }
+
+header .before {
+	cursor: pointer;
+	display: inline;
+	float: left;
+	margin: 1.2rem 1rem;
+	position: relative;
+	width: 5rem;
+	outline: none;
+}
+
+header .before span {
+	background-color: #000;
+	border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+	display: inline;
+	float: left;
+	height: 0.4rem;
+	margin: 0.2rem 0;
+	position: relative;
+	width: 3rem;
+}
+
+#header-inner { position: relative; }
+
+nav ul {
+	padding-left: 0;
+	margin-left: 0;
+	
+}
+
+nav ul li {
+	padding-left: 0;
+	margin-left: 0;
+}
+
+nav ul {
+	position: absolute;
+	left: 0;
+	top: 5rem;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+	width: 32rem;
+	display: none;
+}
+
+nav ul li {padding:1rem 0.4rem;}
+
+.subscribe { width: 32rem; }
+
+form input[type="text"] {
+	width: 12rem;
+	padding: 0.5rem;
+	line-height: 2rem;
+	height: 3rem;
+	border: 0.1rem solid #000;
+	margin: 0;
+	color: #000;
+}
+
+form input[type="submit"] {
+	width: 6rem;
+	margin: 0;
+}
+
+button, input[type="submit"], .button, .button:visited {
+	font-family: "nimbus-sans-condensed";
+	font-size: 1.3rem;
+	font-style: normal;
+	font-weight: 400;
+	text-decoration: none;
+	border: 1px solid #000;
+	background: #000;
+	color: #FFF;
+	display: inline;
+ padding: .5rem 1.5rem;
+	height: 2.9rem;
+}
+
+button:hover, input[type="submit"]:hover, .button:hover {
+	background: #FFF;
+	color: #000;
+	text-decoration: none;
+}
+
+button:active, input[type="submit"]:active, .button:active {
+	position: relative;
+	top: 1px;
+}
+
+/* HUNTERhunter - Footer */
+
+footer {
+	background: rgb(255,255,0);
+	width: 100%;
+	overflow: hidden;
+	padding: 2rem 0 5rem;
+}
+
+#footer-inner {
+	width: 128rem;
+	margin: 0 auto;
+}
+
+.footer-div, .header-div {
+	float: right;
+	display: inline;
+}
+
+.footer-copy { float: left; }
+
+.footer-copy a { margin-left: 1rem; }
+
+.footer-copy, .footer-menu, .header-menu {  margin-top: .7rem;
+}
+
+.footer-menu a, .header-menu a {
+	font-family: "nimbus-sans-condensed";
+	font-size: 1.3rem;
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #000;
+}
+
+.footer-menu-item, .header-menu-item {  margin: 0 .75rem;
+}
+
+.social {
+	background: url(http://hunterhunter.businesscatalyst.com/images/icons/sprite.png) no-repeat;
+	height: 1.4rem;
+ margin: 0 .3rem;
+	display: inline-block;
+	text-indent: -9999px;
+}
+
+.email {
+	background-position: 0 0;
+	width: 2.1rem;
+ margin-left: .75rem;
+}
+
+.twitter {
+	background-position: 0 -1.4rem;
+	width: 1.7rem;
+}
+
+.facebook { background-position: -3.2rem -1.4rem;  width: .9rem;
+}
+
+.instagram {
+	background-position: -1.8rem -1.4rem;
+	width: 1.3rem;
+}
+
+footer input[type="text"], header input[type="text"] {
+ border: .1rem solid rgb(80,80,80);
+	background: #FFF;
+	font-size: 1.2rem;
+ padding: .5rem;
+	height: 2.9rem;
+	width: 12.5rem;
+	border-right: 0;
+}
+
+footer input, header input {
+	float: left;
+	margin: 0;
+}
+
+footer form, header input { margin-right: 0.5rem; }
+
+	 nav ul {border:0.1rem solid rgb(0,0,0);height:8rem;}
+
+#nav ul#filters { width: 32rem; }
+
+#nav ul#filters li { }
+
+#nav ul#filters li a {
+	font-size: 1.3rem;
+	padding: 0 1.48rem;
+}
+
+main {
+	width: 32rem;
+	margin: 0 auto;
+	background-color: white;
+	position: relative;
+	display: block;
+}
+
+#header-inner {
+	width: 32rem;
+	margin: 0 auto;
+}
+
+#footer-inner {
+	width: 32rem;
+	margin: 0 auto;
+}
+
+@media all and (min-width:640px) {
+
+.before { display: none !important; }
+
+#nav ul#filters { width: 64rem; }
+
+#nav ul#filters li { width: 12.8rem; }
+
+#nav ul#filters li a { font-size: 1.3rem; }
+
+main { width: 64rem; }
+
+#header-inner { width: 64rem; }
+
+header #mob-menu { display: none; }
+header {height:12.5rem;margin-bottom:-12.5rem;}
+#content {padding-top:13.5rem;}
+
+nav { position: relative; }
+
+nav {
+	display: inline;
+	float: right;
+	width: 32rem;
+}
+
+nav ul {
+	position: relative;
+	display: block !important;
+	list-style-type: none;
+	top: 0;
+	border:none;
+}
+
+nav ul li { float: left; padding:0.5rem 0.4rem; }
+
+#logo { width: 25rem;padding-top:1rem; }
+
+#footer-inner { width: 64rem; }
+}
+@media all and (min-width:960px) {
+	
+	nav {width:64rem;padding-top:2rem;}
+	nav ul {width:64rem;height:auto;}
+	nav ul li {float:right;}
+
+#nav ul#filters { width: 96rem; }
+
+#nav ul#filters li {
+	width: 19.2rem;
+	height: 4rem;
+}
+
+#nav ul#filters li a {
+	font-size: 1.6rem;
+	line-height: 4rem;
+}
+
+main { width: 96rem; }
+
+header {height:13rem;margin-bottom:-13rem;}
+#content {padding-top:14rem;}
+
+#header-inner { width: 96rem; }
+
+#footer-inner { width: 96rem; }
+}
+@media all and (min-width:1280px) {
+
+#nav ul#filters { width: 128rem; }
+
+#nav ul#filters li { width: 25.6rem; }
+
+#nav ul#filters li a { font-size: 1.6rem; }
+
+main { width: 128rem; }
+
+#header-inner { width: 128rem; }
+
+#footer-inner { width: 128rem; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div id="header-inner">
+  <nav> <a class="before" href="#"> <span></span> <span></span> <span></span> </a>
+    <ul>
+      <li>
+        <div class="header-div header-signup">
+          <form name="catemaillistform9224" onsubmit="return checkWholeForm9224(this)" method="post" action="/CampaignProcess.aspx?ListID=23029">
+            <input class="cat_textbox_small" type="text" name="FullName" id="CLFullName" onblur="if (!this.value) this.value=this.defaultValue" onfocus="if (this.value==this.defaultValue) this.value=''; else this.select()" value="Your Name *" maxlength="255" />
+            <input class="cat_textbox_small" type="text" name="EmailAddress" id="CLEmailAddress" onblur="if (!this.value) this.value=this.defaultValue" onfocus="if (this.value==this.defaultValue) this.value=''; else this.select()" value="Your Email *" maxlength="255" />
+            <input class="cat_button" type="submit" value="SIGNUP" id="catlistbutton" />
+          </form>
+        </div>
+      </li>
+      <li>
+        <div class="header-div header-menu">
+        <a class="header-menu-item" href="#">ABOUT US</a> | <a class="header-menu-item" href="#">CONTACT</a> | <a href="#" class="social email">Email</a> <a href="#" class="social twitter">Twitter</a> <a href="#" class="social facebook">Facebook</a> <a href="#" class="social instagram">Instagram</a></div>
+   
+      </li>
+    </ul>
+  </nav>
+  <div id="logo"> <img src="images/logo.png"> </div>
+  </div>
+  <div id="nav">
+    <ul data-option-key="filter" class="option-set project-menu" id="filters">
+      <li class="yellow"><a class="selected" data-option-value="*" href="#show-all">ALL</a></li>
+      <li class="green"><a data-option-value=".eat" href="#eat">EAT</a></li>
+      <li class="l-blue"><a data-option-value=".drink" href="#drink">DRINK</a></li>
+      <li class="d-blue"><a data-option-value=".shop" href="#shop">SHOP</a></li>
+      <li class="pink"><a data-option-value=".experience" href="#experience">EXPERIENCE</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+  <div id="content"> {tag_pagecontent} </div>
+</main>
+<footer>
+  <div id="footer-inner">
+    <div id="footer-inner">
+      <div class="footer-div footer-copy">&copy; 2013 Hunter hunter <a href="http://www.headjam.com.au/" title="Headjam">Site by Headjam</a></div>
+      <div class="footer-div footer-signup">
+        <form name="catemaillistform9224" onsubmit="return checkWholeForm9224(this)" method="post" action="/CampaignProcess.aspx?ListID=23029">
+          <input class="cat_textbox_small" type="text" name="FullName" id="CLFullName" onblur="if (!this.value) this.value=this.defaultValue" onfocus="if (this.value==this.defaultValue) this.value=''; else this.select()" value="Your Name *" maxlength="255" />
+          <input class="cat_textbox_small" type="text" name="EmailAddress" id="CLEmailAddress" onblur="if (!this.value) this.value=this.defaultValue" onfocus="if (this.value==this.defaultValue) this.value=''; else this.select()" value="Your Email *" maxlength="255" />
+          <input class="cat_button" type="submit" value="SIGNUP" id="catlistbutton" />
+                  </form>
+          
+
+      </div>
+      <div class="footer-div footer-menu"><a class="footer-menu-item" href="#">ABOUT US</a> | <a class="footer-menu-item" href="#">CONTACT</a> | <a href="#" class="social email">Email</a> <a href="#" class="social twitter">Twitter</a> <a href="#" class="social facebook">Facebook</a> <a href="#" class="social instagram">Instagram</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="/CatalystScripts/ValidationFunctions.js"></script> 
+          <script type="text/javascript">
+					//<![CDATA[
+					function checkWholeForm9224(theForm){var why = "";if (theForm.EmailAddress) why += checkEmail(theForm.EmailAddress.value); if (why != ""){alert(why);return false;}theForm.submit();return false;}
+					//]]>
+				</script>
+<script>
+// Place any jQuery/helper plugins in here.
+// jsafgasghjfsdjhfjdsjfdjsfhgdsjfkdskfkdsgkjhdskjgfhjkdshkfjhsdk
+$(".before").click(function(event) {
+event.preventDefault();
+$("nav ul").slideToggle();
+});
+</script>
+</body>
+</html>
